@@ -1,0 +1,60 @@
+@pathToBootstrap: '../../../../../../bower_components/bootstrap/less';
+@pathToFontAwesome: '../../../../../../bower_components/font-awesome/less';
+@pathToBaseTheme: './';
+@pathToLibs: '@{pathToBaseTheme}/lib';
+
+//Variables
+@import "theme-variables.less";
+
+did-widget{
+
+  //Libraries
+  @import "@{pathToLibs}/bootstrap/bootstrap.less";
+  @import (less)"@{pathToLibs}/font-awesome/font-awesome.css";
+
+  //Mixins
+  @import "@{pathToBaseTheme}/mixins/buttons.less";
+  @import "@{pathToBaseTheme}/mixins/depth.less";
+  @import "@{pathToBaseTheme}/mixins/loader.less";
+
+  //Typography
+  @import "@{pathToBaseTheme}/typography/headings.less";
+  @import "@{pathToBaseTheme}/typography/instructions.less";
+
+  //Sections
+  @import "@{pathToBaseTheme}/sections/header.less";
+  @import "@{pathToBaseTheme}/sections/body.less";
+  @import "@{pathToBaseTheme}/sections/footer.less";
+
+  //Components
+  @import "@{pathToBaseTheme}/components/alerts.less";
+  @import "@{pathToBaseTheme}/components/buttons.less";
+  @import "@{pathToBaseTheme}/components/estimatedTime.less";
+  @import "@{pathToBaseTheme}/components/inputs.less";
+  @import "@{pathToBaseTheme}/components/loader.less";
+  @import "@{pathToBaseTheme}/components/progressBar.less";
+  @import "@{pathToBaseTheme}/components/stageTickers.less";
+  @import "@{pathToBaseTheme}/components/helpModal.less";
+
+  //Stages
+  ////Core
+  @import "@{pathToBaseTheme}/stages/core/init.less";
+  @import "@{pathToBaseTheme}/stages/core/start.less";
+  @import "@{pathToBaseTheme}/stages/core/complete.less";
+  @import "@{pathToBaseTheme}/stages/core/fatalError.less";
+  ////Provider Login
+  @import "@{pathToBaseTheme}/stages/flows/providerLogin/selectProvider.less";
+  @import "@{pathToBaseTheme}/stages/flows/providerLogin/login.less";
+  @import "@{pathToBaseTheme}/stages/flows/providerLogin/progress.less";
+  @import "@{pathToBaseTheme}/stages/flows/providerLogin/mfa.less";
+  @import "@{pathToBaseTheme}/stages/flows/providerLogin/selectAccount.less";
+  // Bureau Check
+  @import "@{pathToBaseTheme}/stages/flows/bureau/bureauUk.less";
+
+  padding:@didWidgetPadding;
+  display:block;
+  position:relative;
+}
+
+@import (less)"@{pathToLibs}/postcodeAnywhere/capturePlus-2.30.css";
+@import (less)"@{pathToLibs}/postcodeAnywhere/capturePlus-2.30-overides.less";

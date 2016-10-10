@@ -1,0 +1,30 @@
+did-stage-ticker {
+  display: block;
+  margin: 15px 0;
+  text-align: center;
+
+  .did-stage-ticker-container {
+    .nav-pills {
+      li {
+        background-color:@didGrayLighter;
+        color:@didWhite;
+        display: inline-block;
+        float: none;
+        padding:4px;
+
+        &:not(:first-child) {
+          margin-left: 4px; //Fixes a bug where bootstrap tooltips cause tickers to bounce around
+        }
+
+        &.did-stage-ticker-active{
+          background-color:@didGrayLight;
+        }
+
+        &.did-stage-ticker-completed{
+          background-color:@didBrandSuccess;
+        }
+
+      }
+    }
+  }
+}
