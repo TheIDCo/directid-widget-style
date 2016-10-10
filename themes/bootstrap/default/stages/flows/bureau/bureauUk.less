@@ -1,0 +1,77 @@
+&[did-stage="didBureauUk"] {
+
+  .did-field-container {
+
+    margin-bottom: 1em;
+
+    input {
+      margin-top: 0.5em;
+    }
+  }
+
+  .did-date-of-birth-field {
+    display: inline-block;
+    margin-right: 1em;
+
+    label {
+      font-weight: normal;
+    }
+
+    input[type=number] {
+      -moz-appearance: textfield;
+
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+      }
+    }
+  }
+
+  .did-date-of-birth-day {
+    width: 3.3em;
+    .did-date-of-birth-field;
+  }
+  .did-date-of-birth-month {
+    width: 3.3em;
+    .did-date-of-birth-field;
+  }
+  .did-date-of-birth-year {
+    width: 4.4em;
+    .did-date-of-birth-field;
+  }
+
+  .did-bureau-uk-submit-loader {
+    .did-loader-inner {
+      width: 3em;
+    }
+  }
+
+  did-address-lookup-uk {
+    input {
+      margin-bottom: 0.2em;
+
+    }
+  }
+
+  .did-address-label {
+
+    padding: 1em;
+
+    tr {
+      td {
+        padding-bottom: 0.3em;
+
+        &.did-address-label-field {
+          padding-right: 1.5em;
+          text-align: right;
+          font-style: oblique;
+        }
+
+        &.did-address-label-value {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+}

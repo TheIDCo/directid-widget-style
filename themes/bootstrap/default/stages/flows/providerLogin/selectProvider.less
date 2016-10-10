@@ -1,0 +1,52 @@
+&[did-stage="didProviderSelect"] {
+
+  .did-submit-group {
+    margin: 10px 0 20px;
+  }
+
+  did-provider-search {
+    display: block;
+    width: 100%;
+    margin-bottom:5px;
+
+    .did-provider-search-input {
+      position: relative;
+      width: 100%;
+
+      .input-group-addon{
+        background-color: @didWhite;
+      }
+
+      .did-provider-search-status {
+        position: absolute;
+        right: 0.4em;
+        top: 0.4em;
+        z-index: 10;
+
+        did-loader {
+          .did-loader-input;
+        }
+      }
+    }
+  }
+
+  did-popular-providers{
+    display:block;
+    font-size:0.8em;
+    padding-left:50px;
+
+    label{
+      font-weight: normal;
+    }
+
+    ul{
+      list-style: none;
+      padding:0 0 5px;
+
+      li{
+        padding: 0 0 5px 15px;
+      }
+
+    }
+  }
+}

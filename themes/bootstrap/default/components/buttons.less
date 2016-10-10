@@ -1,0 +1,56 @@
+.btn {
+  border-radius: @didBorderRadius;
+  font-size:1em;
+  text-transform: uppercase;
+}
+
+.btn-default{
+  color:@didBrandPrimary;
+  border:none;
+
+  &:hover,
+  &:focus{
+    //color:darken(@didBrandPrimary, 20%);
+    color:@didBrandPrimary;
+    background-color:@didGrayLighter;
+    border:none;
+    outline: none;
+  }
+
+  &:active,
+  &:active:hover{
+    color:darken(@didBrandPrimary, 5%);
+    background-color:darken(@didGrayLighter, 10%);
+    border:none;
+    outline: none;
+    box-shadow: none;
+  }
+
+}
+
+.btn-primary {
+  &:not(:disabled) {
+    .raised;
+  }
+}
+
+.did-start-button {
+  width: 75%;
+  max-width: 300px;
+  min-width: 200px;
+  height: 2.5em;
+  font-size: 1.25em;
+}
+
+&[did-responsive="xs"]{
+  .did-start-button{
+    font-size: 1.1em;
+  }
+
+  .did-submit-group{
+    .btn{
+      .full-width-button;
+    }
+  }
+}
+
