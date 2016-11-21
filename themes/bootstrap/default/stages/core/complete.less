@@ -1,21 +1,31 @@
-&[did-stage="didComplete"]{
+&[did-stage="didComplete"] {
 
-  .did-success-message{
-    background-color:@didBrandSuccess;
-    border-color:@didBrandSuccess;
-    color:@didWhite;
-    text-align:center;
-    font-size:1.4em;
-    margin:4em auto 0;
-    max-width:500px;
-    min-width:300px;
+  .did-stage-heading {
+    visibility: hidden;
+  }
+  .did-estimated-time {
+    visibility: hidden;
   }
 
-  .did-success-thank-you-message{
+  .did-success-tick {
+    height: 6em;
     text-align: center;
-    font-size:0.9em;
-    margin:1em 0 4em;
+    margin-bottom: 1em;
+    i {
+      color: @didBrandSuccess;
+      font-size: 7em;
+    }
   }
 
+  .did-success-message {
+    color: @didBrandSuccess;
+    text-align: center;
+    font-size: 2.4em;
+  }
 
+  .did-success-thank-you-message {
+    text-align: center;
+    font-size: 1.1em;
+    margin:  0 0 5em 0;
+  }
 }

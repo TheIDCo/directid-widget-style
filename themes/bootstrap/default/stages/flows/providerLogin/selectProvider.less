@@ -7,43 +7,137 @@
   did-provider-search {
     display: block;
     width: 100%;
-    margin-bottom:5px;
+    margin-bottom: 5px;
+
+    ::-ms-clear {
+      display: none;
+    }
 
     .did-provider-search-input {
       position: relative;
       width: 100%;
 
-      .input-group-addon{
+      .input-group-addon {
         background-color: @didWhite;
       }
 
       .did-provider-search-status {
-        position: absolute;
-        right: 0.4em;
-        top: 0.4em;
         z-index: 10;
+        position: absolute;
+        right: 0;
+
+        .did-provider-search-success {
+
+          i {
+            position: relative;
+            font-size: 1em;
+            transform: translateY(55%);
+            right: 0.5em;
+            color: @didBrandSuccess;
+          }
+
+          img {
+            width: 16px; /* Exact size of icons returned from Yodlee */
+            height: 16px; /* Exact size of icons returned from Yodlee */
+            position: relative;
+            right: 0.6em;
+            transform: translateY(50%);
+          }
+        }
+
+        .did-provider-search-loader {
+          position: relative;
+          top: 0.4em;
+          right: 0.4em;
+        }
 
         did-loader {
           .did-loader-input;
         }
       }
     }
+
+    .dropdown-menu {
+      border-radius: @didBorderRadius;
+      width: calc(~'100% - 38px');
+      max-height: 20em;
+      overflow-y: auto;
+
+      li {
+
+        &:not(:last-child){
+          border-bottom: 1px @didGrayLight solid;
+        }
+
+        margin: 0 10px;
+
+        .did-provider-search-result {
+          overflow: hidden;
+          padding-top: 0.3em;
+          padding-bottom: 0.3em;
+          max-width: 100%;
+
+          .did-provider-search-result-inner {
+            display: table;
+            width: 100%;
+
+            .did-provider-search-result-logo {
+              display: table-cell;
+              width:16px;
+              height: 3em;
+              text-align: center;
+              vertical-align: middle;
+
+              img {
+                height: 16px;
+                width: 16px;
+              }
+
+            }
+
+            .did-provider-search-result-details {
+              display: table-cell;
+              vertical-align: middle;
+              padding-left: 25px;
+
+              .did-provider-search-result-url{
+                color:@didGrayLight;
+                font-size: 0.9em;
+              }
+
+            }
+          }
+        }
+
+        &.active{
+          .did-provider-search-result {
+            .did-provider-search-result-inner {
+              .did-provider-search-result-details {
+                .did-provider-search-result-url{
+                  color:@didWhite;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
-  did-popular-providers{
-    display:block;
-    font-size:0.8em;
-    padding-left:50px;
+  did-popular-providers {
+    display: block;
+    font-size: 0.8em;
+    padding-left: 50px;
 
-    label{
+    label {
       font-weight: normal;
     }
 
-    ul{
+    ul {
       list-style: none;
-      padding:0 0 5px;
+      padding: 0 0 5px;
 
-      li{
+      li {
         padding: 0 0 5px 15px;
       }
 
