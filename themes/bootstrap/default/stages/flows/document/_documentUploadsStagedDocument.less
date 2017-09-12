@@ -1,0 +1,95 @@
+.didStagedDocumentMixin() {
+  .did-staged-document {
+    @animSpeed: 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    justify-content: space-between;
+    flex: 0 1 auto;
+    width: 48%;
+    padding: 0;
+    box-shadow: @didDefaultBoxShadow;
+    transition: opacity ease-in @animSpeed;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 4%;
+
+    &.ng-leave.ng-leave-active,
+    &.ng-move,
+    &.ng-enter {
+      opacity: 0;
+    }
+
+    &.ng-leave,
+    &.ng-move.ng-move-active,
+    &.ng-enter.ng-enter-active {
+      opacity: 1;
+    }
+
+    .did-staged-document-spacer {
+      flex: 1 1 auto;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .did-staged-document-header, .did-staged-document-remove, .did-staged-document-preview, .did-staged-document-progress-bar {
+      flex: 0 0 auto;
+      word-wrap: break-word;
+    }
+
+    .did-staged-document-preview {
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      text-align: center;
+      img {
+        width: auto;
+        margin: 0 auto;
+        max-height: 15em;
+        min-height: 15em;
+      }
+    }
+    .did-staged-document-preview-progress {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5);;
+
+      did-loader, .did-upload-file-completed {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .did-upload-file-completed {
+        font-size: 3em;
+        padding: 0.1em;
+        color: @didWhite;
+        background-color: @didBrandSuccess;
+        box-shadow: @didDefaultBoxShadow;
+        border-radius: 50%;
+        opacity: 0.8;
+      }
+
+    }
+
+    .did-staged-document-remove {
+      text-align: center;
+      padding: 0.3em;
+      background-color: @didWhite;
+
+      .btn {
+        width: 100%;
+
+        &.btn-default {
+          background-color: transparent;
+
+          &:hover {
+            background-color: transparent;
+            color: @didBrandDanger;
+          }
+        }
+      }
+    }
+
+  }
+}

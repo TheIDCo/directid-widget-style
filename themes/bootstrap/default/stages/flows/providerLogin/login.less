@@ -7,4 +7,34 @@
   .did-provider-login-button{
     .pull-right;
   }
+
+  .did-multi-choice {
+    margin: 20px 0;
+    padding: 20px 0 5px 0;
+    border-top: 1px solid @didGrayLight;
+    border-bottom: 1px solid @didGrayLight;
+    .did-multi-choice-label {
+      font-size: 1.1em;
+      padding-bottom: 10px;
+    }
+  }
+
+  .did-multi-field.form-inline {
+    .form-group:last-of-type {
+      margin-left: 15px;
+    }
+  }
+
+  &[did-responsive="sm"],&[did-responsive="xs"] {
+    .did-multi-field.form-inline {
+      .form-group:last-of-type {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .did-provider-login-tooltip {
+    color: @didGray;
+  }
+
 }

@@ -1,0 +1,162 @@
+@brandLogosBorderRadius: 2px; /* This var sets the border-radius for logo img's both here and in the brandAccountSelect.less file */
+
+&[did-stage="didBrandSelect"] {
+
+  @animSpeed: 0.15s;
+  @margin: 1em;
+
+  /* This array should match the values set in config under stageConfig.didBrandSelect.responsiveResultColumns;
+   * In each pair, the first value acts as the 'key', and the second one as the 'value' in constructing the
+   * flexColSize mixins using the .createColSize guarded loop below
+   */
+  @columnsArray: nonResponsive 5, xxlg 9, xlg 3, lg 6, md 5, sm 4, xs 3;
+
+  /* recursive function to create mixins for each of the responsive viewSizes defined above
+   * it will calculate the width of a column, given the desired number of columns (set in the @columnsArray above
+   * it uses @margin value as the 'gutter' space between columns
+   * it sets the margin of the last element on the row as 0 and sets its position to relative, to mimic behaviour of flex's justify-content: space-in-between;
+   * the generated mixins are named as .flexColSize-[viewSize]; example: .flexColSize-xs
+   */
+  .createColSizes(@iterator:1) when(@iterator <= length(@columnsArray)) {
+      @viewSize: extract(extract(@columnsArray, @iterator), 1);
+      @noOfCols: (extract(extract(@columnsArray, @iterator),2));
+      .flexColSize-@{viewSize} {
+        width: ~'calc( ( ( 100% - @{margin} * ( @{noOfCols} - 1) ) / @{noOfCols}) - 1px)'; // fallback for IE10/11 not supporting flex;
+        flex: 0 1 ~'calc( ( ( 100% - @{margin} * ( @{noOfCols} - 1) ) / @{noOfCols}) - 1px )';
+        &:nth-of-type(@{noOfCols}n) {
+          margin-right: 0;
+        }
+      }
+      .createColSizes((@iterator + 1));
+    }
+    .createColSizes();
+
+  .did-provider-search-input {
+    margin-bottom: 10px;
+  }
+
+  .did-alert, button {
+    margin-top: @margin;
+  }
+
+  .did-alert {
+    margin-bottom: 0;
+  }
+
+  .did-provider-brands {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+
+    .did-provider-brand {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-top: @margin;
+      margin-right: @margin;
+      align-items: center;
+
+      &.ng-leave {
+        display: none;
+      }
+
+      @-moz-document url-prefix() {
+        display: block;
+      }
+
+      @supports (-ms-ime-align: auto) {
+        display: block;
+      }
+
+      did-brand-logo {
+        display: block;
+        text-align: center;
+        position: relative;
+        animation: fadein 1s;
+        animation-timing-function: ease-out;
+        border-radius: @brandLogosBorderRadius;
+
+        @keyframes fadein {
+          from { opacity: 0; }
+          to   { opacity: 1; }
+        }
+        width: 100%;
+        padding-bottom: 60%; /* Determined the image aspect ration; 60% = 5:3 */
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+
+        img {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          right: 0;
+          left: 0;
+          margin: auto;
+          width: 100%;
+          transition: transform ease-in @animSpeed;
+        }
+
+        .did-brand-logo-placeholder-text {
+          position: absolute;
+          width: 100%;
+          top: 50%;
+          transform: translateY(-50%);
+          padding: 1em;
+          color: @didGrayDark;
+          font-size: 1.1em;
+        }
+
+        &:hover {
+          cursor: pointer;
+          transform: scale(.95);
+          transition: transform ease-in @animSpeed;
+        }
+      }
+    }
+  }
+
+  &[did-responsive="md"] .did-provider-brand {
+    .flexColSize-md;
+  }
+
+  &[did-responsive="xxlg"] .did-provider-brand {
+    .flexColSize-xxlg;
+  }
+
+  &[did-responsive="xlg"] .did-provider-brand {
+    .flexColSize-xlg;
+  }
+
+  &[did-responsive="lg"] .did-provider-brand {
+    .flexColSize-lg;
+  }
+
+  &[did-responsive="sm"] .did-provider-brand {
+    .flexColSize-sm;
+
+    did-brand-logo {
+      .did-brand-logo-placeholder-text {
+        padding: 0.5em;
+        font-size: 1em;
+      }
+    }
+  }
+
+  &[did-responsive="xs"] .did-provider-brand {
+    .flexColSize-xs;
+
+    did-brand-logo {
+      .did-brand-logo-placeholder-text {
+        padding: 0.25em;
+        font-size: 0.9em;
+      }
+    }
+  }
+
+  // Forcing buttons to stack on sm and xs did-responsive classes by setting width to 100%
+  &[did-responsive="sm"], &[did-responsive="xs"] {
+    button {
+      width: 100%;
+    }
+  }
+}
