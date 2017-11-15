@@ -1,5 +1,17 @@
 &[did-stage="didProviderLogin"] {
 
+  &[did-responsive="md"] h1 {
+    font-size: 1.9em;
+  }
+
+  &[did-responsive="sm"] h1 {
+    font-size: 1.7em;
+  }
+
+  .brand-logo-section {
+    .brand-logo-header;
+  }
+
   .did-submit-group {
     margin: 30px 0 20px;
   }
@@ -20,15 +32,39 @@
   }
 
   .did-multi-field.form-inline {
-    .form-group:last-of-type {
-      margin-left: 15px;
+    display: inline-block;
+    margin-bottom: 15px;
+
+    .form-group {
+
+    /* The display properties below have been introduced in order to break the block formatting context and allow a label
+     * to be a block type element sitting on its own row, and the subsequent inputs to float one next to the other on the
+     * line beneath. This use case is exercised in the Date of Birth field (for example for Emigrant Bank), where multiple
+     * form-groups are present but only the first label is displayed */
+
+      display: inline;
+      label {
+        display: block;
+      }
+      &:not(:first-of-type) {
+        margin-left: 15px;
+      }
     }
   }
 
   &[did-responsive="sm"],&[did-responsive="xs"] {
     .did-multi-field.form-inline {
-      .form-group:last-of-type {
-        margin-left: 0;
+      display: inline;
+
+      .form-group {
+
+        /* Restoring the block property of the .form-group element when it needs to stack, to ensure the correct vertical
+         * spacing is applied */
+
+        display: block;
+        &:not(:first-of-type) {
+          margin-left: 0;
+        }
       }
     }
   }
@@ -36,5 +72,4 @@
   .did-provider-login-tooltip {
     color: @didGray;
   }
-
 }

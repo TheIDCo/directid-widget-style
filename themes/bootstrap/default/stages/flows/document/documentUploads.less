@@ -104,11 +104,11 @@
     }
 
     .btn {
-      width: 100%;
+      min-width: 150px;
       padding: 0.6em;
 
       &:not(:last-child) {
-        margin: 0 0 2%;
+        margin: 0 0 .5em;
       }
     }
 
@@ -224,7 +224,12 @@
 
   &[did-responsive="xs"] {
     .did-staged-document {
-      width: 96%;
+      width: 100%;
+    }
+
+    .did-submit-group .btn {
+      float: none;
+      width: 100%;
     }
   }
 }

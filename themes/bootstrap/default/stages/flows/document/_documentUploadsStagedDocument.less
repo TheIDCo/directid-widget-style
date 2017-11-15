@@ -12,7 +12,15 @@
     transition: opacity ease-in @animSpeed;
     position: relative;
     overflow: hidden;
-    margin-bottom: 4%;
+    margin-bottom: 1em;
+
+    @-moz-document url-prefix() {
+      display: block;
+    }
+
+    @supports (-ms-ime-align: auto) {
+      display: block;
+    }
 
     &.ng-leave.ng-leave-active,
     &.ng-move,
