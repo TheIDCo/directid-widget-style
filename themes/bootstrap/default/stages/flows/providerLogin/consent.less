@@ -1,0 +1,51 @@
+&[did-stage="didConsent"] {
+
+  .did-consent {
+    padding: 0 40px 0 40px;
+  }
+
+  &[did-responsive="sm"], &[did-responsive="xs"] {
+    .did-consent {
+      padding: 0;
+    }
+  }
+
+  .panel {
+
+    .panel-heading {
+      background-color: @didGrayLighter;
+
+      &:hover {
+        background-color: fadeout(@didGrayLight, 60%);
+      }
+
+      .panel-title {
+        font-size: 1.15em;
+        cursor: pointer;
+      }
+    }
+
+    .list-group-item {
+      font-size: 1em;
+    }
+
+  }
+
+  .did-consent-expiry {
+    font-weight: bold;
+
+    &:after {
+      font-weight: normal;
+      content: ".";
+    }
+  }
+
+  .did-submit-group {
+    margin: 30px 0 20px;
+  }
+
+  .did-accept-consent-button {
+    .pull-right;
+  }
+
+}
