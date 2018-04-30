@@ -11,33 +11,83 @@
   }
 
   .panel {
+    border: 0;
+    box-shadow: none;
+
+    input[type='checkbox'] {
+      display: none;
+    }
 
     .panel-heading {
+      display: block;
+      padding: 10px 15px;
+      font-size: 1.15em;
+      font-weight: 500;
+      margin: 0;
+      cursor: pointer;
+      transition: all 0.25s ease-out;
       background-color: @didGrayLighter;
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
 
       &:hover {
         background-color: fadeout(@didGrayLight, 60%);
       }
 
-      .panel-title {
-        font-size: 1.15em;
-        cursor: pointer;
+      &::before {
+        content: ' ';
+        display: inline-block;
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-left: 5px solid @didGrayBase;
+        vertical-align: middle;
+        margin-right: .7rem;
+        transform: translateY(-2px);
+        transition: transform .2s ease-out;
       }
     }
 
-    .list-group-item {
-      font-size: 1em;
+    .panel-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .25s ease-in-out;
+
+      .list-group {
+        margin-bottom: 0;
+
+        .list-group-item {
+          font-size: 1em;
+
+          &:first-child {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+          }
+        }
+      }
+    }
+
+    .panel-toggle:checked + .panel-heading + .panel-content {
+      max-height: 350px;
+    }
+
+    .panel-toggle:checked + .panel-heading {
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+    }
+
+    .panel-toggle:checked + .panel-heading::before {
+      transform: rotate(90deg) translateX(-3px);
+    }
+
+    .panel-toggle:checked + .panel-heading {
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
     }
 
   }
 
   .did-consent-expiry {
     font-weight: bold;
-
-    &:after {
-      font-weight: normal;
-      content: ".";
-    }
   }
 
   .did-submit-group {
