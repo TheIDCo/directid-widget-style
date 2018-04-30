@@ -7,7 +7,7 @@
    * In each pair, the first value acts as the 'key', and the second one as the 'value' in constructing the
    * flexColSize mixins using the .createColSize guarded loop below
    */
-  @columnsArray: nonResponsive 5, xxlg 9, xlg 3, lg 6, md 5, sm 4, xs 3;
+  @columnsArray: nonResponsive 5, xxlg 9, xlg 8, lg 6, md 5, sm 4, xs 3;
 
   /* recursive function to create mixins for each of the responsive viewSizes defined above
    * it will calculate the width of a column, given the desired number of columns (set in the @columnsArray above
@@ -45,6 +45,7 @@
     display: flex;
     flex-wrap: wrap;
     align-content: center;
+    margin-bottom: 15px;
 
     .did-provider-brand {
       display: flex;
