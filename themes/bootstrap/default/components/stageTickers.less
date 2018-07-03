@@ -1,27 +1,120 @@
 did-stage-ticker {
-  display: block;
-  margin: 15px 0;
-  text-align: center;
 
   .did-stage-ticker-container {
+    display: block;
+    margin: 40px 0 25px 0;
+    text-align: center;
+
+    .stage-ticker {
+      width: 18%;
+      display: inline-table;
+
+      &:last-of-type {
+        .stage-index-border {
+          border: none;
+        }
+      }
+    }
+
+    .stage-index-container {
+      position: relative;
+    }
+
+    .stage-index-border {
+      z-index: 0;
+      position: absolute;
+      left: 49%;
+      width: 100%;
+      top: 50%;
+      border-top: 1px dashed @didGrayLight;
+    }
+
+    .stage-index-outer {
+      z-index: 2;
+      top: -15px;
+      border-radius: 100%;
+      padding: 6px 1px;
+      font-size: 15px;
+      font-weight: normal;
+
+      .stage-index-inner {
+        border: 1px solid @didGrayLight;
+        background-color: @didWhite;
+        border-radius: 100%;
+        padding: 4px 8px;
+        color: @didGrayLight;
+        position: relative;
+      }
+    }
+
+    .stage-label {
+      color: @didGray;
+      display: block;
+      font-size: 11px;
+      margin-top: 15px;
+    }
+
+    .did-stage-ticker-active {
+      .stage-index-outer {
+        border: 2px solid @didBrandPrimary;
+        background-color: @didWhite;
+
+        font-weight: bold;
+
+        .stage-index-inner {
+          border: 1px solid @didWhite;
+          background-color: @didBrandPrimary;
+          color: @didWhite;
+        }
+      }
+
+      .stage-label {
+        color: inherit;
+      }
+    }
+
+    .did-stage-ticker-completed {
+      .stage-index-inner {
+        border: 1px solid @didBrandSuccess;
+        padding: 6px 7px;
+        background-color: @didBrandSuccess;
+        color: @didWhite;
+      }
+
+      .stage-index-inner:before {
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: normal;
+        content: "\f00c"; // check symbol
+      }
+
+      .stage-label {
+        color: @didBrandSuccess;
+      }
+
+      .stage-index-border {
+        border-top-style: solid;
+      }
+    }
+
     .nav-pills {
       li {
-        background-color:@didGrayLighter;
-        color:@didWhite;
+        background-color: @didGrayLighter;
+        color: @didWhite;
         display: inline-block;
         float: none;
-        padding:4px;
+        padding: 4px;
 
         &:not(:first-child) {
           margin-left: 4px; //Fixes a bug where bootstrap tooltips cause tickers to bounce around
         }
 
-        &.did-stage-ticker-active{
-          background-color:@didGrayLight;
+        &.did-stage-ticker-active {
+          background-color: @didGrayLight;
         }
 
-        &.did-stage-ticker-completed{
-          background-color:@didBrandSuccess;
+        &.did-stage-ticker-completed {
+          background-color: @didBrandSuccess;
         }
 
       }
